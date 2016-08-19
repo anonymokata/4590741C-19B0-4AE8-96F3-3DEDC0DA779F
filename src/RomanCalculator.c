@@ -191,9 +191,13 @@ _Bool validateRomanNumber(unsigned char * InputRomanNumeral) {
 
 // Customer Interface, outputRomanNumeral= firstInputRomanNumeral + secondInputRomanNumeral, "Error" when input or error is incorrect
 void AddTwoRomans(unsigned char * firstInputRomanNumeral, unsigned char * secondInputRomanNumeral, unsigned char * outputRomanNumeral) {
-	int firstNumber= convertRomanToInt(firstInputRomanNumeral);
-	int secondNumber= convertRomanToInt(secondInputRomanNumeral);
-	convertIntToRoman(firstNumber + secondNumber, outputRomanNumeral);
+	if (validateRomanNumber(firstInputRomanNumeral)) {
+		int firstNumber= convertRomanToInt(firstInputRomanNumeral);
+		int secondNumber= convertRomanToInt(secondInputRomanNumeral);
+		convertIntToRoman(firstNumber + secondNumber, outputRomanNumeral);
+	} else {
+		strcpy(outputRomanNumeral, ERROR_MSG);
+	}
 }
 
 // Customer Interface, outputRomanNumeral= firstInputRomanNumeral - subtractedInputRomanNumeral, "Error" when input or error is incorrect
