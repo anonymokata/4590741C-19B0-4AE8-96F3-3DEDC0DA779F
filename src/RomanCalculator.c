@@ -136,12 +136,20 @@ int convertRomanToInt(unsigned char * inputRomanNumeral) { //returns Roman Numbe
 					returnValue=returnValue+10*len; 
 				}
 				break;
-
 			case 'V':
 				returnValue=returnValue+5; //Only one V is allowed
 		        break;
 			case 'I':
-				returnValue=returnValue+len;
+				converted=0;
+				if (index+1 < qtyOfTokens) {
+					if (Tokens[index+1][0]=='X') {
+						returnValue = returnValue + 9;
+						index++; //Can skip the C
+						converted=1;
+					} 				} 
+				if (!converted) {
+					returnValue=returnValue+len;
+				}
 				break;
 			default:
 				returnValue=0;
