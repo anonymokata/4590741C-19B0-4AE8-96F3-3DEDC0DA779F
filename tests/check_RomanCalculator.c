@@ -229,6 +229,30 @@ START_TEST(whengetTokensFromRomanisPassedMCLAndReturnsQty3AndM_C_L)
 	ck_assert_msg(result, "Failure, qty='%d', Values='%s','%s','%s'\r\n", qty, Tokens[0], Tokens[1], Tokens[2]);
 }
 END_TEST
+START_TEST(whengetTokensFromRomanisPassedMMMCCCLXXAndReturnsQty4AndMMM_CCC_L_XX)
+{
+	unsigned char Tokens[TOKEN_QTY][TOKEN_SIZE]={0};
+	int qty=getTokensFromRoman("MMMCCCLXX", &Tokens);
+	_Bool result=1; //Assume result is fine
+	if (qty != 4) {
+		result=0; 
+	} else {
+		if (strcmp(Tokens[0], "MMM")) {
+			result=0;
+		}
+		if (strcmp(Tokens[1], "CCC")) {
+			result=0;
+		}
+		if (strcmp(Tokens[2], "L")) {
+			result=0;
+		}
+		if (strcmp(Tokens[3], "XX")) {
+			result=0;
+		}
+	}
+	ck_assert_msg(result, "Failure, qty='%d', Values='%s','%s','%s','%s'\r\n", qty, Tokens[0], Tokens[1], Tokens[2], Tokens[3]);
+}
+END_TEST
 
 Suite * RomanCalculator_suite(void)
 {
@@ -265,6 +289,7 @@ Suite * RomanCalculator_suite(void)
 	tcase_add_test(tc_core, whengetTokensFromRomanisPassedMAndReturnsQty1);
 	tcase_add_test(tc_core, whengetTokensFromRomanisPassedMAndReturnsQty1AndM);
 	tcase_add_test(tc_core, whengetTokensFromRomanisPassedMCLAndReturnsQty3AndM_C_L);
+	tcase_add_test(tc_core, whengetTokensFromRomanisPassedMMMCCCLXXAndReturnsQty4AndMMM_CCC_L_XX);
     suite_add_tcase(s, tc_core);
 
     return s;

@@ -67,11 +67,17 @@ void convertIntToRoman(int inputNumber, unsigned char * outputRomanNumeral) {
 //returns the number of tokens found and the Tokens in the passe variable
 int getTokensFromRoman(unsigned char *inputRomanNumeral, unsigned char (*Tokens)[TOKEN_QTY][TOKEN_SIZE]) {
 	int len=strlen(inputRomanNumeral);
-	int tokensReturned=len;
+	unsigned char lastChar=0; //initialize to a invalid roman numeral
+	int tokensReturned=-1;    //It will be returning 1 + the index at the end
 	int index;
-	for (index=0; index<len; index++) {
-		strncat((*Tokens)[index], &inputRomanNumeral[index], 1);
+	for (index=0; index < len; index++) {
+		if (inputRomanNumeral[index] != lastChar) {  //Different char than last time
+			tokensReturned++;
+			lastChar = inputRomanNumeral[index];
+		}
+		strncat((*Tokens)[tokensReturned], &inputRomanNumeral[index], 1);
 	}
+	tokensReturned++; //return one more than last index
 	return tokensReturned;
 }
 
