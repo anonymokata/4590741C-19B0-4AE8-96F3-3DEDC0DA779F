@@ -18,7 +18,7 @@
 
 //Convert an inputNumber to a string Roman Numeral
 void convertIntToRoman(int inputNumber, unsigned char * outputRomanNumeral) {
-	if (inputNumber >= 4000) {
+	if ((inputNumber >= 4000) || (inputNumber <= 0)) {
 		strcpy(outputRomanNumeral, ERROR_MSG);
 	} else {
 		int thousands=inputNumber/1000;
