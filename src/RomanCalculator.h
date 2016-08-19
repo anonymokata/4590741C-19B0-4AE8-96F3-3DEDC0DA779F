@@ -29,6 +29,12 @@ int getTokensFromRoman(unsigned char *inputRomanNumeral, unsigned char (*Tokens)
 //Converts a Roman Numeral to an integer, since 0 is not a valid Roman Numeral 0 is returned on Error
 int convertRomanToInt(unsigned char * inputRomanNumeral);
 
+//This function validates the roman number and returns 0 if it is not a roman number
+//It is a brute force method that iterates though the universe of roman numbers and attempt to find a match
+//It was implemented this way due to time constraints and the fact tha searching 3999 values is nothing to a computer.
+//This would be implemented this wasy if the design criteria were for speed
+_Bool validateRomanNumber(unsigned char * InputRomanNumeral);
+
 // Customer Interface, outputRomanNumeral= firstInputRomanNumeral + secondInputRomanNumeral, "Error" when input or error is incorrect
 void AddTwoRomans(unsigned char * firstInputRomanNumeral, unsigned char * secondInputRomanNumeral, unsigned char * outputRomanNumeral);
 

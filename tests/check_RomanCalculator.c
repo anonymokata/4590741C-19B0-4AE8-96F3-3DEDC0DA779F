@@ -400,6 +400,13 @@ START_TEST(whenSubTwoRomansSubtractsMMMCCCLXXXIXsubMMCLXXVIIequalsMCCXII)
 	ck_assert_msg(result, "Failure, first='%s', subtracted='%s', result='%s'\r\n", firstInputRomanNumeral, subtractedInputRomanNumeral, outputRomanNumeral);
 }
 END_TEST
+START_TEST(whenvalidateRomanNumberIsPassedCCCisTrue)
+{
+	unsigned char firstInputRomanNumeral[MAX_ROMAN_LENGTH]="CCC";
+	_Bool result=validateRomanNumber(firstInputRomanNumeral);
+	ck_assert_msg(result, "Failure, CCC should be Valid");
+}
+END_TEST
 
 Suite * RomanCalculator_suite(void)
 {
@@ -458,6 +465,7 @@ Suite * RomanCalculator_suite(void)
 	tcase_add_test(tc_core, whenTestingAllInReverse);
 	tcase_add_test(tc_core, whenAddTwoRomansAddsMCandCMequalsMM);
 	tcase_add_test(tc_core, whenSubTwoRomansSubtractsMMMCCCLXXXIXsubMMCLXXVIIequalsMCCXII);
+	tcase_add_test(tc_core, whenvalidateRomanNumberIsPassedCCCisTrue);
     suite_add_tcase(s, tc_core);
 
     return s;
