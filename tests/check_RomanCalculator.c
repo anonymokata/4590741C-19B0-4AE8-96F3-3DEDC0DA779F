@@ -172,6 +172,14 @@ START_TEST(whenconvertIntToRomanisPassed2444AndReturnsMMCDXLIV)
 	ck_assert_msg(result, "Failure, returnValue='%s'\r\n", returnValue);
 }
 END_TEST
+START_TEST(whenconvertIntToRomanisPassed3333AndReturnsMMMCCCXXXIII)
+{
+	unsigned char returnValue[MAX_ROMAN_LENGTH];
+	convertIntToRoman(3333, returnValue);
+	_Bool result=!strcmp(returnValue, "MMMCCCXXXIII");
+	ck_assert_msg(result, "Failure, returnValue='%s'\r\n", returnValue);
+}
+END_TEST
 Suite * RomanCalculator_suite(void)
 {
     Suite *s;
@@ -203,6 +211,7 @@ Suite * RomanCalculator_suite(void)
 	tcase_add_test(tc_core, whenconvertIntToRomanisPassed3888AndReturnsMMMDCCCLXXXVIII);
 	tcase_add_test(tc_core, whenconvertIntToRomanisPassed1999AndReturnsMCMXCIX);
 	tcase_add_test(tc_core, whenconvertIntToRomanisPassed2444AndReturnsMMCDXLIV);
+	tcase_add_test(tc_core, whenconvertIntToRomanisPassed3333AndReturnsMMMCCCXXXIII);
     suite_add_tcase(s, tc_core);
 
     return s;
