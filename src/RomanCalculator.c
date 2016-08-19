@@ -106,6 +106,9 @@ int convertRomanToInt(unsigned char * inputRomanNumeral) { //returns Roman Numbe
 			case 'X':
 				returnValue=returnValue+10*len;
 				break;
+			case 'V':
+				returnValue=returnValue+5; //Only one V is allowed
+		        break;
 			default:
 				returnValue=0;
 				break;
