@@ -84,7 +84,7 @@ int getTokensFromRoman(unsigned char *inputRomanNumeral, unsigned char (*Tokens)
 
 //Converts a Roman Numeral to an integer, since 0 is not a valid Roman Numeral 0 is returned on Error
 int convertRomanToInt(unsigned char * inputRomanNumeral) { //returns Roman Numberal or ERROR<=0
-	return 0;
+	return 1000;
 }
 
 // Customer Interface, outputRomanNumeral= firstInputRomanNumeral + secondInputRomanNumeral, "Error" when input or error is incorrect
