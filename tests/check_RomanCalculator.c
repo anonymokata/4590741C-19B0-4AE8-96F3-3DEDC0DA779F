@@ -339,6 +339,12 @@ START_TEST(whenconvertRomanToIntisPassedIVAndReturns4)
 	ck_assert_msg(result==4, "Failure, result='%d'\r\n", result);
 }
 END_TEST
+START_TEST(whenconvertRomanToIntisPassedMMMDCCCLXXXVIIIandReturns3888)
+{
+	int result=convertRomanToInt("MMMDCCCLXXXVIII");	
+	ck_assert_msg(result==3888, "Failure, result='%d'\r\n", result);
+}
+END_TEST
 
 Suite * RomanCalculator_suite(void)
 {
@@ -390,6 +396,7 @@ Suite * RomanCalculator_suite(void)
 	tcase_add_test(tc_core, whenconvertRomanToIntisPassedXLAndReturns40);
 	tcase_add_test(tc_core, whenconvertRomanToIntisPassedIXAndReturns9);
 	tcase_add_test(tc_core, whenconvertRomanToIntisPassedIVAndReturns4);
+	tcase_add_test(tc_core, whenconvertRomanToIntisPassedMMMDCCCLXXXVIIIandReturns3888);
     suite_add_tcase(s, tc_core);
 
     return s;
