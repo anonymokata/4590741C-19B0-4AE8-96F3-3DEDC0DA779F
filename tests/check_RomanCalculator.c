@@ -180,6 +180,19 @@ START_TEST(whenconvertIntToRomanisPassed3333AndReturnsMMMCCCXXXIII)
 	ck_assert_msg(result, "Failure, returnValue='%s'\r\n", returnValue);
 }
 END_TEST
+
+//Next getTokens from a passed Roman Numberal
+START_TEST(whengetTokensFromRomanisPassedMAndReturnsQty1)
+{
+	unsigned char Tokens[TOKEN_QTY][TOKEN_SIZE]={0};
+	int qty=getTokensFromRoman("M", &Tokens);
+	_Bool result=1; //Assume result is fine
+	if (qty != 1) {
+		result=0; 
+	}
+	ck_assert_msg(result, "Failure, qty='%d'\r\n", qty);
+}
+END_TEST
 Suite * RomanCalculator_suite(void)
 {
     Suite *s;
@@ -212,6 +225,7 @@ Suite * RomanCalculator_suite(void)
 	tcase_add_test(tc_core, whenconvertIntToRomanisPassed1999AndReturnsMCMXCIX);
 	tcase_add_test(tc_core, whenconvertIntToRomanisPassed2444AndReturnsMMCDXLIV);
 	tcase_add_test(tc_core, whenconvertIntToRomanisPassed3333AndReturnsMMMCCCXXXIII);
+	tcase_add_test(tc_core, whengetTokensFromRomanisPassedMAndReturnsQty1);
     suite_add_tcase(s, tc_core);
 
     return s;

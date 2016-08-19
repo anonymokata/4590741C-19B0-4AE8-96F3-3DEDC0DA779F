@@ -16,9 +16,15 @@
 
 #define MAX_ROMAN_LENGTH 16 //This is maximum size of any Roman Numeral
 #define ERROR_MSG "ERROR" //Generic Error message sent to customer
+#define TOKEN_QTY 10 //This is the maximum number of different letters in a roman numeral e.g. MCL = 3 tokens, MMMCCCL = 3 Tokens
+#define TOKEN_SIZE 4  //This is the maximum number of the same character can be in the token + 1 for null, e.g. L=2, MMM=4, CC=3
 
 //Convert an inputNumber to a string Roman Numeral
 void convertIntToRoman(int inputNumber, unsigned char * outputRomanNumeral);
+
+//Converts a Roman Numeral to an array of Tokens
+int getTokensFromRoman(unsigned char *inputRomanNumeral, unsigned char (*Tokens)[TOKEN_QTY][TOKEN_SIZE]);
+
 
 //Converts a Roman Numeral to an integer, since 0 is not a valid Roman Numeral 0 is returned on Error
 int convertRomanToInt(unsigned char * inputRomanNumeral);

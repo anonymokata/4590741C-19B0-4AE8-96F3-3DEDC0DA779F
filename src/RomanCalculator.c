@@ -64,6 +64,16 @@ void convertIntToRoman(int inputNumber, unsigned char * outputRomanNumeral) {
 	}
 }
 
+//returns the number of tokens found and the Tokens in the passe variable
+int getTokensFromRoman(unsigned char *inputRomanNumeral, unsigned char (*Tokens)[TOKEN_QTY][TOKEN_SIZE]) {
+	int returnValue=0;
+	if (!strcmp(inputRomanNumeral, "M")) {
+		returnValue=1;
+	}
+	return returnValue;
+}
+
+
 //Converts a Roman Numeral to an integer, since 0 is not a valid Roman Numeral 0 is returned on Error
 int convertRomanToInt(unsigned char * inputRomanNumeral) { //returns Roman Numberal or ERROR<=0
 	return 0;
