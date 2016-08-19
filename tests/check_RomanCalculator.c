@@ -379,6 +379,16 @@ START_TEST(whenTestingAllInReverse) //Converts all 1-3999 to Roman and back for 
 	}
 }
 END_TEST
+START_TEST(whenAddTwoRomansAddsMCandCMequalsMM)
+{
+	unsigned char firstInputRomanNumeral[MAX_ROMAN_LENGTH]="MC";
+	unsigned char secondInputRomanNumeral[MAX_ROMAN_LENGTH]="CM";
+	unsigned char outputRomanNumeral[MAX_ROMAN_LENGTH];
+	AddTwoRomans(firstInputRomanNumeral, secondInputRomanNumeral, outputRomanNumeral);
+	_Bool result=!strcmp(outputRomanNumeral, "MM");
+	ck_assert_msg(result, "Failure, first='%s', second='%s', result='%s'\r\n", firstInputRomanNumeral, secondInputRomanNumeral, outputRomanNumeral);
+}
+END_TEST
 
 Suite * RomanCalculator_suite(void)
 {
@@ -435,6 +445,7 @@ Suite * RomanCalculator_suite(void)
 	tcase_add_test(tc_core, whenconvertIntToRomanisPassedMMCDXLIVandReturns2444);
 	tcase_add_test(tc_core, whenconvertIntToRomanisPassedMMMCCCXXXIIIandReturns3333);
 	tcase_add_test(tc_core, whenTestingAllInReverse);
+	tcase_add_test(tc_core, whenAddTwoRomansAddsMCandCMequalsMM);
     suite_add_tcase(s, tc_core);
 
     return s;
