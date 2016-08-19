@@ -43,6 +43,10 @@ void convertIntToRoman(int inputNumber, unsigned char * outputRomanNumeral) {
 			strncat(outputRomanNumeral, "XC", 2);
 			remainder=remainder-90;
 		}
+		if (remainder >=50) {
+			strncat(outputRomanNumeral, "L", 1);
+			remainder=remainder-50;
+		}
 	}
 }
 
