@@ -357,6 +357,28 @@ START_TEST(whenconvertIntToRomanisPassedMMCDXLIVandReturns2444)
 	ck_assert_msg(result==2444, "Failure, result='%d'\r\n", result);
 }
 END_TEST
+START_TEST(whenconvertIntToRomanisPassedMMMCCCXXXIIIandReturns3333)
+{
+	int result=convertRomanToInt("MMMCCCXXXIII");	
+	ck_assert_msg(result==3333, "Failure, result='%d'\r\n", result);
+}
+END_TEST
+START_TEST(whenTestingAllInReverse) //Converts all 1-3999 to Roman and back for comparison
+{
+	unsigned char eachRomanNumber[MAX_ROMAN_LENGTH];
+	int eachNumber;
+	int playbackNumber;
+	for (eachNumber=1; eachNumber<4000; eachNumber++) {
+		int index;
+		for (index=0; index < MAX_ROMAN_LENGTH; index++) {
+			eachRomanNumber[index]=0;
+		}
+		convertIntToRoman(eachNumber, eachRomanNumber);
+		playbackNumber=convertRomanToInt(eachRomanNumber);
+		ck_assert_msg(eachNumber==playbackNumber, "Failure, eachNumber='%d', playbackNumber='%d', Roman '%s'\r\n", eachNumber, playbackNumber, eachRomanNumber);
+	}
+}
+END_TEST
 
 Suite * RomanCalculator_suite(void)
 {
@@ -411,6 +433,8 @@ Suite * RomanCalculator_suite(void)
 	tcase_add_test(tc_core, whenconvertRomanToIntisPassedMMMDCCCLXXXVIIIandReturns3888);
 	tcase_add_test(tc_core, whenconvertIntToRomanisPassedMCMXCIXandReturns1999);
 	tcase_add_test(tc_core, whenconvertIntToRomanisPassedMMCDXLIVandReturns2444);
+	tcase_add_test(tc_core, whenconvertIntToRomanisPassedMMMCCCXXXIIIandReturns3333);
+	tcase_add_test(tc_core, whenTestingAllInReverse);
     suite_add_tcase(s, tc_core);
 
     return s;
