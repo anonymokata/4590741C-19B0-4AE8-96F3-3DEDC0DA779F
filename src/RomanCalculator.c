@@ -27,12 +27,10 @@ void convertIntToRoman(int inputNumber, unsigned char * outputRomanNumeral) {
 		if (remainder >= 900) {
 			strncat(outputRomanNumeral, "CM", 2);
 			remainder=remainder-900;
-		}
-		if (remainder >= 500) {
+		} else if (remainder >= 500) {
 			strncat(outputRomanNumeral, "D", 1);
 			remainder=remainder-500;
-		}
-		if (remainder >= 400) {
+		} else if (remainder >= 400) {
 			strncat(outputRomanNumeral, "CD", 2);
 			remainder=remainder-400;
 		}
@@ -42,12 +40,10 @@ void convertIntToRoman(int inputNumber, unsigned char * outputRomanNumeral) {
 		if (remainder >=90) {
 			strncat(outputRomanNumeral, "XC", 2);
 			remainder=remainder-90;
-		}
-		if (remainder >=50) {
+		} else if (remainder >=50) {
 			strncat(outputRomanNumeral, "L", 1);
 			remainder=remainder-50;
-		}
-		if (remainder >=40) {
+		} else if (remainder >=40) {
 			strncat(outputRomanNumeral, "XL", 2);
 			remainder=remainder-40;
 		}
@@ -57,12 +53,10 @@ void convertIntToRoman(int inputNumber, unsigned char * outputRomanNumeral) {
 		if (remainder == 9) {
 			strncat(outputRomanNumeral, "IX", 2);
 			remainder= remainder-9;
-		}
-		if (remainder >= 5) {
+		} else if (remainder >= 5) {
 			strncat(outputRomanNumeral, "V", 1);
 			remainder= remainder-5;
-		}
-		if (remainder == 4) {
+		} else if (remainder == 4) {
 			strncat(outputRomanNumeral, "IV", 2);
 			remainder= remainder-4;
 		}

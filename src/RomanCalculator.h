@@ -14,7 +14,7 @@
 #define ROMAN_CALCULATOR_H
 
 
-#define MAX_ROMAN_LENGTH 20 //This is maximum size of any Roman Numeral
+#define MAX_ROMAN_LENGTH 16 //This is maximum size of any Roman Numeral
 #define ERROR_MSG "ERROR" //Generic Error message sent to customer
 
 //Convert an inputNumber to a string Roman Numeral
