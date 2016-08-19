@@ -68,6 +68,14 @@ START_TEST(whenconvertIntToRomanisPassed500AndReturnsD)
 	ck_assert_msg(result, "Failure, returnValue='%s'\r\n", returnValue);
 }
 END_TEST
+START_TEST(whenconvertIntToRomanisPassed400AndReturnsCD)
+{
+	unsigned char returnValue[MAX_ROMAN_LENGTH];
+	convertIntToRoman(400, returnValue);
+	_Bool result=!strcmp(returnValue, "CD");
+	ck_assert_msg(result, "Failure, returnValue='%s'\r\n", returnValue);
+}
+END_TEST
 Suite * RomanCalculator_suite(void)
 {
     Suite *s;
@@ -86,6 +94,7 @@ Suite * RomanCalculator_suite(void)
     tcase_add_test(tc_core, whenconvertIntToRomanisPassed0AndReturnsERROR);
 	tcase_add_test(tc_core, whenconvertIntToRomanisPassed900AndReturnsCM);
 	tcase_add_test(tc_core, whenconvertIntToRomanisPassed500AndReturnsD);
+	tcase_add_test(tc_core, whenconvertIntToRomanisPassed400AndReturnsCD);
 
     suite_add_tcase(s, tc_core);
 

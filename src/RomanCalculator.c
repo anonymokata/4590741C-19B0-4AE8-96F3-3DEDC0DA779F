@@ -32,6 +32,10 @@ void convertIntToRoman(int inputNumber, unsigned char * outputRomanNumeral) {
 			strncat(outputRomanNumeral, "D", 1);
 			remainder=remainder-500;
 		}
+		if (remainder >= 400) {
+			strncat(outputRomanNumeral, "CD", 2);
+			remainder=remainder-400;
+		}
 
 	}
 }
