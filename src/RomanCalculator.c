@@ -87,6 +87,7 @@ int convertRomanToInt(unsigned char * inputRomanNumeral) { //returns Roman Numbe
     unsigned char Tokens[TOKEN_QTY][TOKEN_SIZE]={0};  //Initialize 0
 	int qtyOfTokens=getTokensFromRoman(inputRomanNumeral, &Tokens);
     int index;
+	_Bool converted;
 	int returnValue=0;
 	index=0;
 	while(index < qtyOfTokens) {
@@ -99,10 +100,19 @@ int convertRomanToInt(unsigned char * inputRomanNumeral) { //returns Roman Numbe
 				returnValue=returnValue+500; //Only 1 d is allowed
 				break;
 			case 'C':
-				if ((index+1 < qtyOfTokens)&&(Tokens[index+1][0]=='M')) {
-					returnValue = returnValue + 900;
-					index++; //Can skip the M
-				} else {
+				converted=0;
+				if (index+1 < qtyOfTokens) {
+					if (Tokens[index+1][0]=='M') {
+						returnValue = returnValue + 900;
+						index++; //Can skip the M
+						converted=1;
+					} else if (Tokens[index+1][0]=='D') {
+						returnValue = returnValue + 400;
+						index++; //Can skip the D
+						converted=1;
+					}	
+				} 
+				if (!converted) {
 					returnValue=returnValue+100*len;
 				}
 				break;
