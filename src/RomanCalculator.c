@@ -66,11 +66,12 @@ void convertIntToRoman(int inputNumber, unsigned char * outputRomanNumeral) {
 
 //returns the number of tokens found and the Tokens in the passe variable
 int getTokensFromRoman(unsigned char *inputRomanNumeral, unsigned char (*Tokens)[TOKEN_QTY][TOKEN_SIZE]) {
-	int returnValue=0;
+	int tokensReturned=0;
 	if (!strcmp(inputRomanNumeral, "M")) {
-		returnValue=1;
+		tokensReturned=1;
+		strncat((*Tokens)[0], "M", 1);
 	}
-	return returnValue;
+	return tokensReturned;
 }
 
 
