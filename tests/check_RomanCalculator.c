@@ -315,6 +315,12 @@ START_TEST(whenconvertRomanToIntisPassedCDAndReturns400)
 	ck_assert_msg(result==400, "Failure, result='%d'\r\n", result);
 }
 END_TEST
+START_TEST(whenconvertRomanToIntisPassedXCAndReturns90)
+{
+	int result=convertRomanToInt("XC");	
+	ck_assert_msg(result==90, "Failure, result='%d'\r\n", result);
+}
+END_TEST
 
 Suite * RomanCalculator_suite(void)
 {
@@ -362,6 +368,7 @@ Suite * RomanCalculator_suite(void)
 	tcase_add_test(tc_core, whenconvertRomanToIntisPassedVIIIAndReturns8);
 	tcase_add_test(tc_core, whenconvertRomanToIntisPassedCMAndReturns900);
 	tcase_add_test(tc_core, whenconvertRomanToIntisPassedCDAndReturns400);
+	tcase_add_test(tc_core, whenconvertRomanToIntisPassedXCAndReturns90);
     suite_add_tcase(s, tc_core);
 
     return s;
