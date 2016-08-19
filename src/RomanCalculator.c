@@ -94,6 +94,9 @@ int convertRomanToInt(unsigned char * inputRomanNumeral) { //returns Roman Numbe
 			case 'M':
 				returnValue=returnValue+1000*len;
 				break;
+			case 'D':
+				returnValue=returnValue+500; //Only 1 d is allowed
+				break;
 			default:
 				returnValue=0;
 				break;
