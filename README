@@ -1,0 +1,52 @@
+/* ROMAN CALCULATOR PROJECT by Dennis Edward Arce
+ *
+ * This project is an example of the Check testing foundation in "C".
+ * 
+ * The project can be built with the provided makefile by typing "make"
+ * at the command line.
+ * 
+ * The project tests can be activated by typing "make check" at the command
+ * line or by typing "./RomanCalculator" at the command line.
+ * 
+ * The project provides two user interfaces:
+ *  void AddTwoRomans(char * firstInputRomanNumeral, char * secondInputRomanNumeral, char * outputRomanNumeral);
+ *  void SubTwoRomans(char * firstInputRomanNumeral, char * subtractedInputRomanNumeral, char * outputRomanNumeral);
+ * 
+ * The approach taken was to convert the input roman numerals to integers and 
+ * then do the appropriate addition and subtraction operations prior to 
+ * converting them back to roman numerals.  
+ * 
+ * A MAJOR goal of the project was to create a test prior to each step and 
+ * validate the test.
+ * 
+ * GIT Commits were done at each incremental step of the approach.  
+ * 
+ * The major tasks are described here:
+ * 
+ * Step 1. Convert from Integer to Roman Numerals.  This was done first so
+ * that it could be learned how roman numerals were built.
+ * 
+ * Step 2. Convert from Roman Numerals to Integer.  This was done incrementally
+ * in order to show such a system could be built with the test framework.  It 
+ * would have been easier to search the universe of Roman Numeral (1-3999 as 
+ * defined by the task) and use the matching input to the passed string.
+ * 
+ * A test was devised to prove these two methods mirrored each other.  Each of
+ * the 3999 values was converted to a Roman Numeral and then back again for comparison.
+ * 
+ * Step 3. Implement the Addition of two Roman Numerals.  This is a simple 
+ * algorithm that converts the two roman numerals to integers add them and converts 
+ * back.
+ * 
+ * Step 4. Implement the Subtration of one Roman Numeral from the other.  This
+ * is a simple algorithm that converts the two roman numerals to integer, does the
+ * subtraction and then converts back.
+ * 
+ * Step 5. Provide rudimentary error checking on the roman numerals entered.  This
+ * was done using the search algorithm mentioned above.  Since there is a one to one
+ * correlation between integers and Roman Numerals, it is easy to search 3999 values
+ * to determine if a passed value is in the universe.
+ * 
+ */
+
+ 
