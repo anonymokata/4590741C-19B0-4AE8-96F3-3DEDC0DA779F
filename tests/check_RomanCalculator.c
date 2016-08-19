@@ -132,6 +132,14 @@ START_TEST(whenconvertIntToRomanisPassed5AndReturnsV)
 	ck_assert_msg(result, "Failure, returnValue='%s'\r\n", returnValue);
 }
 END_TEST
+START_TEST(whenconvertIntToRomanisPassed4AndReturnsIV)
+{
+	unsigned char returnValue[MAX_ROMAN_LENGTH];
+	convertIntToRoman(4, returnValue);
+	_Bool result=!strcmp(returnValue, "IV");
+	ck_assert_msg(result, "Failure, returnValue='%s'\r\n", returnValue);
+}
+END_TEST
 Suite * RomanCalculator_suite(void)
 {
     Suite *s;
@@ -158,6 +166,7 @@ Suite * RomanCalculator_suite(void)
 	tcase_add_test(tc_core, whenconvertIntToRomanisPassed80AndReturnsLXXX);
 	tcase_add_test(tc_core, whenconvertIntToRomanisPassed9AndReturnsIX);
 	tcase_add_test(tc_core, whenconvertIntToRomanisPassed5AndReturnsV);
+	tcase_add_test(tc_core, whenconvertIntToRomanisPassed4AndReturnsIV);
     suite_add_tcase(s, tc_core);
 
     return s;
