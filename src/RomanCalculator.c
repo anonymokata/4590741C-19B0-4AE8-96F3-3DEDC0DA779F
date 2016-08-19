@@ -58,6 +58,10 @@ void convertIntToRoman(int inputNumber, unsigned char * outputRomanNumeral) {
 			strncat(outputRomanNumeral, "IX", 2);
 			remainder= remainder-9;
 		}
+		if (remainder >= 5) {
+			strncat(outputRomanNumeral, "V", 1);
+			remainder= remainder-5;
+		}
 	}
 }
 
