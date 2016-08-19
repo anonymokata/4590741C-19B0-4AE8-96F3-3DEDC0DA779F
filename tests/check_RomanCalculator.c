@@ -28,6 +28,15 @@ START_TEST(whenconvertIntToRomanisPassed1000AndReturnsM)
 	ck_assert_msg(result, "Failure, returnValue='%s'\r\n", returnValue);
 }
 END_TEST
+START_TEST(whenconvertIntToRomanisPassed3000AndReturnsMMM)
+{
+	unsigned char returnValue[MAX_ROMAN_LENGTH];
+	convertIntToRoman(3000, returnValue);
+	_Bool result=!strcmp(returnValue, "MMM");
+	ck_assert_msg(result, "Failure, returnValue='%s'\r\n", returnValue);
+}
+END_TEST
+
 
 Suite * RomanCalculator_suite(void)
 {
@@ -42,6 +51,7 @@ Suite * RomanCalculator_suite(void)
 
     //tcase_add_checked_fixture(tc_core, setup, teardown);
     tcase_add_test(tc_core, whenconvertIntToRomanisPassed1000AndReturnsM);
+	tcase_add_test(tc_core, whenconvertIntToRomanisPassed3000AndReturnsMMM);
     suite_add_tcase(s, tc_core);
 
     return s;
