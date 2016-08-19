@@ -23,6 +23,10 @@ void convertIntToRoman(int inputNumber, unsigned char * outputRomanNumeral) {
 	} else {
 		int thousands=inputNumber/1000;
 		strncpy(outputRomanNumeral, "MMM", thousands);
+		int remainder=inputNumber-(thousands * 1000);
+		if (remainder >= 900) {
+			strncat(outputRomanNumeral, "CM", 2);
+		}
 	}
 }
 
