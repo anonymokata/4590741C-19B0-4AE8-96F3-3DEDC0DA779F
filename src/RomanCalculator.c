@@ -126,7 +126,11 @@ int convertRomanToInt(unsigned char * inputRomanNumeral) { //returns Roman Numbe
 						returnValue = returnValue + 90;
 						index++; //Can skip the C
 						converted=1;
-					} 
+					} else if (Tokens[index+1][0]=='L') {
+						returnValue = returnValue + 40;
+						index++; //Can skip the L
+						converted=1;
+					}	
 				} 
 				if (!converted) {
 					returnValue=returnValue+10*len; 
