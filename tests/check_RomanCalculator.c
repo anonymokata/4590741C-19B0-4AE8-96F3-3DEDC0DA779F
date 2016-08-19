@@ -445,6 +445,17 @@ START_TEST(whenSubTwoRomansSubtractsMDDsubCCCequalsERROR)
 	ck_assert_msg(result, "Failure MDD is not a valid number\r\n");
 }
 END_TEST
+START_TEST(whenSubTwoRomansSubtractsMMMsubLLequalsERROR)
+{
+	unsigned char firstInputRomanNumeral[MAX_ROMAN_LENGTH]="MMM";
+	unsigned char subtractedInputRomanNumeral[MAX_ROMAN_LENGTH]="LL";
+	unsigned char outputRomanNumeral[MAX_ROMAN_LENGTH];
+	SubTwoRomans(firstInputRomanNumeral, subtractedInputRomanNumeral, outputRomanNumeral);
+	_Bool result=!strcmp(outputRomanNumeral, ERROR_MSG);
+	//ck_abort_msg("%s, %s, %s\r\n",firstInputRomanNumeral, subtractedInputRomanNumeral,outputRomanNumeral);
+	ck_assert_msg(result, "Failure LL is not a valid number\r\n");
+}
+END_TEST
 
 Suite * RomanCalculator_suite(void)
 {
@@ -508,6 +519,7 @@ Suite * RomanCalculator_suite(void)
 	tcase_add_test(tc_core, whenAddTwoRomansAddsIIXandCMequalsERROR);
 	tcase_add_test(tc_core, whenAddTwoRomansAddsCCCandIVIVEqualsERROR);
 	tcase_add_test(tc_core, whenSubTwoRomansSubtractsMDDsubCCCequalsERROR);
+	tcase_add_test(tc_core, whenSubTwoRomansSubtractsMMMsubLLequalsERROR);
 	
     suite_add_tcase(s, tc_core);
 
