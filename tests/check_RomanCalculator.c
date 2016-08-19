@@ -424,6 +424,16 @@ START_TEST(whenAddTwoRomansAddsIIXandCMequalsERROR)
 	ck_assert_msg(result, "Failure IIX is not a valid number\r\n", firstInputRomanNumeral, secondInputRomanNumeral, outputRomanNumeral);
 }
 END_TEST
+START_TEST(whenAddTwoRomansAddsCCCandIVIVEqualsERROR)
+{
+	unsigned char firstInputRomanNumeral[MAX_ROMAN_LENGTH]="CCC";
+	unsigned char secondInputRomanNumeral[MAX_ROMAN_LENGTH]="IVIV";
+	unsigned char outputRomanNumeral[MAX_ROMAN_LENGTH];
+	AddTwoRomans(firstInputRomanNumeral, secondInputRomanNumeral, outputRomanNumeral);
+	_Bool result=!strcmp(outputRomanNumeral, ERROR_MSG);
+	ck_assert_msg(result, "Failure IVIV is not a valid number\r\n");
+}
+END_TEST
 
 Suite * RomanCalculator_suite(void)
 {
@@ -485,6 +495,7 @@ Suite * RomanCalculator_suite(void)
 	tcase_add_test(tc_core, whenvalidateRomanNumberIsPassedCCCisTrue);
 	tcase_add_test(tc_core, whenvalidateRomanNumberIsPassedCCCCisFalse);
 	tcase_add_test(tc_core, whenAddTwoRomansAddsIIXandCMequalsERROR);
+	tcase_add_test(tc_core, whenAddTwoRomansAddsCCCandIVIVEqualsERROR);
 	
     suite_add_tcase(s, tc_core);
 
